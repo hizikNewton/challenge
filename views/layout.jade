@@ -1,0 +1,20 @@
+doctype html
+html
+	head
+		title School Management System
+		link(rel='stylesheet', href='/stylesheets/style.css')
+	body
+		.container
+			img.logo(src='/images/schmgtsys.png')
+			nav
+				ul
+					li
+						a(href='/') Home
+					li
+						a(href='/students/add') Add Student
+					li
+						a(href='' )
+			!= messages()
+			block content
+			footer
+				p schoolMgmtSys &copy; 2017  

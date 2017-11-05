@@ -1,0 +1,33 @@
+extends layout
+
+block content
+	h1=title
+	ul.errors
+		if errors
+			each error, i in errors
+				li.alert.alert=danger #{error.msg}
+	form(method='post',action='/students/add',enctype="multipart/form-data")
+		.form-group
+			label Name:
+			input.form-control(name='Name',type='text')
+		.form-group
+			label Email:
+			input.form-control(name='email',type='text')
+		.form-group
+			label Age:
+			input.form-control(name='age',type='numbers')
+		.form-group
+			label Sex:
+			radio.form-control(name='sex')
+				option(value="male") male
+				option(value="female") female
+		.form-group
+			label Class:
+			select.form-control(name='class')
+				each class,i in classes
+					option(value='#(class title)')#(class.title)
+ 
+		.form-group
+			label Main Image:
+			input.form-control(name='mainImage'type='file')
+		input.btn.btn-default(name='submit',type='submit',value='save')

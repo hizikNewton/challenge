@@ -1,0 +1,14 @@
+extends layout
+
+block content
+	if students
+		each student,i in students
+			.student
+				h1
+					a(href='/students/show/#{post._id}')
+					=student.title
+				p.meta #{mySchool.students} add in #{mySchool.class} on #{moment(mySchool.date).format("MM-DD-YYYY")}
+				=post.body
+				a.more(href='/students/show/#{post._id}') View
+	else
+		p.nostudent There no student added
